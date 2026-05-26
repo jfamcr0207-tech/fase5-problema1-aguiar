@@ -1,0 +1,40 @@
+# Fundamentos de Programación - UNAD - Código: 213022
+# Fase 5 - Evaluación Final POA
+# Problema 1: Análisis de Compromiso de Sesiones de Clientes
+# Estudiante: Jorge Fernando Aguiar
+
+# Datos iniciales: Matriz [ID Cliente, Duración (s), Clics]
+sesiones = [
+    ["C001", 250, 12],
+    ["C002", 45,  2],
+    ["C003", 130, 5],
+    ["C004", 200, 3],
+    ["C005", 55,  10],
+]
+
+# Módulo / Función de clasificación
+def clasificar_compromiso(duracion, clics):
+    """Clasifica el nivel de compromiso de una sesión."""
+    if duracion > 180 and clics > 8:
+        return "Alto"
+    elif duracion < 60 or clics < 3:
+        return "Bajo"
+    else:
+        return "Medio"
+
+# Generación del informe
+print("=" * 45)
+print("  INFORME DE COMPROMISO DE SESIONES")
+
+print("=" * 45)
+print(f"{'ID Cliente':<12} {'Duración (s)':<15} {'Clics':<8} {'Nivel'}")
+print("-" * 45)
+for sesion in sesiones:
+    id_cliente = sesion[0]
+    duracion   = sesion[1]
+    clics      = sesion[2]
+    nivel      = clasificar_compromiso(duracion, clics)
+    print(f"{id_cliente:<12} {duracion:<15} {clics:<8} {nivel}")
+print("=" * 45)
+print("Fin del informe.")
+                  
